@@ -20,27 +20,44 @@ public class Sudoku extends LatinSquare{
 	}
 	protected int[] getRegion(int iRegionNbr)
 	{
-		/*int[] a = super.getRow(0);
+		int[] a = super.getRow(0);
 		int[] b = super.getRow(1);
-		int[] c = super.getRow(2);*/
-		int[] a = {1,2,3};
-		int[] b = {4,5,6};
-		int[] c = {7,8,9};
-		int[] region0 = {0,0,0,0,0,0,0,0,0};
+		int[] c = super.getRow(2);
+		int[] region = {0};
+		
+		if(iRegionNbr == 0) {
 		for(int i = 0; i < 3; i++) {
-			region0[i] = a[i]; 
+			region[i] = a[i]; 
 		}
 		for(int i = 3; i < 6; i++) {
 			for(int j = 0; j < 3; j++) {
-				region0[i] = b[j];
+				region[i] = b[j];
 			}
 		}
 		for(int i = 6; i < 9; i++) {
 			for(int j = 0; j < 3; j++) {
-				region0[i] = c[j];
-			}
+				region[i] = c[j];
+				}
 		}
-		return region0;
+		}
+		if(iRegionNbr == 1) {
+			for(int i = 0; i < 3; i++) {
+				for(int j = 3; j < 6; j++) {
+				region[i] = a[j]; 
+				}
+			}
+			for(int i = 3; i < 6; i++) {
+				for(int j = 3; j < 6; j++) {
+					region[i] = b[j];
+				}
+			}
+			for(int i = 6; i < 9; i++) {
+				for(int j = 3; j < 6; j++) {
+					region[i] = c[j];
+				}
+			}
+			}
+		return region;
 	}
 	protected int[] getRegion(int Col, int Row)
 	{
