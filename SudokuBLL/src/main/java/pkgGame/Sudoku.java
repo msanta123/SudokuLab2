@@ -39,8 +39,35 @@ public class Sudoku extends LatinSquare{
 	}
 	protected int[] getRegion(int Col, int Row)
 	{
-		
-		return null;
+		int[] region = {0};
+		if((Col==0 || Col==1 || Col==2) && (Row==0 || Row==1 || Row==2)) {
+			region = getRegion(0);
+		}
+		if((Col==3 || Col==4 || Col==5) && (Row==0 || Row==1 || Row==2)) {
+			region = getRegion(1);
+		}
+		if((Col==6 || Col==7 || Col==8) && (Row==0 || Row==1 || Row==2)) {
+			region = getRegion(2);
+		}
+		if((Col==0 || Col==1 || Col==2) && (Row==3 || Row==4 || Row==5)) {
+			region = getRegion(3);
+		}
+		if((Col==3 || Col==4 || Col==5) && (Row==3 || Row==4 || Row==5)) {
+			region = getRegion(4);
+		}
+		if((Col==6 || Col==7 || Col==8) && (Row==3 || Row==4 || Row==5)) {
+			region = getRegion(5);
+		}
+		if((Col==0 || Col==1 || Col==2) && (Row==6 || Row==7 || Row==8)) {
+			region = getRegion(6);
+		}
+		if((Col==3 || Col==4 || Col==5) && (Row==6 || Row==7 || Row==8)) {
+			region = getRegion(7);
+		}
+		if((Col==7 || Col==8 || Col==9) && (Row==6 || Row==7 || Row==8)) {
+			region = getRegion(8);
+		}
+		return region;
 	}
 	protected boolean isSudoku()
 	{
