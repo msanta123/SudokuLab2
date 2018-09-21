@@ -18,46 +18,24 @@ public class Sudoku extends LatinSquare{
 	{
 		return super.getLatinSquare();
 	}
-	protected int[] getRegion(int iRegionNbr)
+	protected int[] getRegion(int r)
 	{
-		int[] a = super.getRow(0);
-		int[] b = super.getRow(1);
-		int[] c = super.getRow(2);
-		int[] region = {0};
+		int[] reg = new int[super.getLatinSquare().length];
 		
-		if(iRegionNbr == 0) {
-		for(int i = 0; i < 3; i++) {
-			region[i] = a[i]; 
-		}
-		for(int i = 3; i < 6; i++) {
-			for(int j = 0; j < 3; j++) {
-				region[i] = b[j];
+		int i = (r % iSqrtSize) * iSqrtSize;
+		int j = (r / iSqrtSize) * iSqrtSize;
+		int iMax = i + iSqrtSize;
+		int jMax = j + iSqrtSize;
+		int iCnt = 0;
+		
+		for (; j < jMax; j++) {
+			for(i = (r % iSqrtSize) * iSqrtSize; i < iMax; i++) {
+				System.out.println("J: " + j + "  " + "I: " + i );
+				
+				reg[iCnt++] = super.getLatinSquare()[j][i];
 			}
 		}
-		for(int i = 6; i < 9; i++) {
-			for(int j = 0; j < 3; j++) {
-				region[i] = c[j];
-				}
-		}
-		}
-		if(iRegionNbr == 1) {
-			for(int i = 0; i < 3; i++) {
-				for(int j = 3; j < 6; j++) {
-				region[i] = a[j]; 
-				}
-			}
-			for(int i = 3; i < 6; i++) {
-				for(int j = 3; j < 6; j++) {
-					region[i] = b[j];
-				}
-			}
-			for(int i = 6; i < 9; i++) {
-				for(int j = 3; j < 6; j++) {
-					region[i] = c[j];
-				}
-			}
-			}
-		return region;
+		return reg;
 	}
 	protected int[] getRegion(int Col, int Row)
 	{
