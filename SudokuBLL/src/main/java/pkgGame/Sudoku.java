@@ -80,12 +80,12 @@ public class Sudoku extends LatinSquare{
 		region6 = getRegion(6);
 		region7 = getRegion(7);
 		region8 = getRegion(8);
-		if region0 
-		return false;
+		if(region0 
+		return true;
 	}
 	protected boolean isSudoku()
 	{
-		return false;
+		return true;
 	}
 	protected boolean isValueValid(int iValue, int Col, int Row)
 	{
