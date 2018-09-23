@@ -69,11 +69,21 @@ public class Sudoku extends LatinSquare{
 		}
 		return region;
 	}
-	protected boolean isSudoku()
+	protected boolean isPartialSudoku()
 	{
+		region0 = getRegion(0);
+		region1 = getRegion(1);
+		region2 = getRegion(2);
+		region3 = getRegion(3);
+		region4 = getRegion(4);
+		region5 = getRegion(5);
+		region6 = getRegion(6);
+		region7 = getRegion(7);
+		region8 = getRegion(8);
+		if region0 
 		return false;
 	}
-	protected boolean isPartialSudoku()
+	protected boolean isSudoku()
 	{
 		return false;
 	}
