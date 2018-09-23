@@ -94,9 +94,16 @@ public class Sudoku extends LatinSquare{
 		}
 		return false;
 	}
-	protected boolean isValueValid(int iValue, int Col, int Row)
+		protected boolean isValueValid(int iValue, int Col, int Row)
 	{
-		return false;
+		int[] thisRow = getRow(Row);
+		int[] thisCol = getColumn(Col);
+		if(doesElementExist(thisCol, iValue) && doesElementExist(thisRow, iValue)) {
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 }
 
