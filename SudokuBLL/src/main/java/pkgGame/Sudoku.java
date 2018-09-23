@@ -71,21 +71,28 @@ public class Sudoku extends LatinSquare{
 	}
 	protected boolean isPartialSudoku()
 	{
-		region0 = getRegion(0);
-		region1 = getRegion(1);
-		region2 = getRegion(2);
-		region3 = getRegion(3);
-		region4 = getRegion(4);
-		region5 = getRegion(5);
-		region6 = getRegion(6);
-		region7 = getRegion(7);
-		region8 = getRegion(8);
-		if(region0 
-		return true;
+		for(int i = 0; i < 9; i++) {
+			if(hasDuplicates(getRegion(i)) == false) {
+				for(int j = 0; j < 9; j++) {
+					if(hasAllValues(getRow(0), getRegion(j))) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
-	protected boolean isSudoku()
+		protected boolean isSudoku()
 	{
-		return true;
+		if(ContainsZero() == false) {
+			if(isPartialSudoku() == true) {
+				for(int i=0; i<9; i++) {
+					hasAllValues(getRow(i),getColumn(i));
+				
+				}
+			}
+		}
+		return false;
 	}
 	protected boolean isValueValid(int iValue, int Col, int Row)
 	{
