@@ -85,6 +85,9 @@ public class Sudoku extends LatinSquare{
 	{
 		int[] thisRow = getRow(Row);
 		int[] thisCol = getColumn(Col);
+		if(hasDuplicates(thisCol) || hasDuplicates(thisRow)){
+			return false;
+		}
 		if(doesElementExist(thisCol, iValue) && doesElementExist(thisRow, iValue)) {
 			return false;
 		}
