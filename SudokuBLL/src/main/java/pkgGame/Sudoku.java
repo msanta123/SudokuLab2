@@ -56,11 +56,11 @@ public class Sudoku extends LatinSquare{
 		int r = (Col / iSqrtSize) + ((Row / iSqrtSize) * iSqrtSize);
 		return getRegion(r);
 	}
-	protected boolean isPartialSudoku()
+		protected boolean isPartialSudoku()
 	{
-		for(int i = 0; i < 9; i++) {
+		for(int i = 0; i < iSize; i++) {
 			if(hasDuplicates(getRegion(i)) == false) {
-				for(int j = 0; j < 9; j++) {
+				for(int j = 0; j < iSize; j++) {
 					if(hasAllValues(getRow(0), getRegion(j))) {
 						return true;
 					}
@@ -73,7 +73,7 @@ public class Sudoku extends LatinSquare{
 	{
 		if(ContainsZero() == false) {
 			if(isPartialSudoku() == true) {
-				for(int i=0; i<9; i++) {
+				for(int i=0; i<iSize; i++) {
 					hasAllValues(getRow(i),getColumn(i));
 				
 				}
