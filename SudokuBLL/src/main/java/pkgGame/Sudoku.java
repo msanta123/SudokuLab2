@@ -10,11 +10,16 @@ public class Sudoku extends LatinSquare{
 	
 	public Sudoku(int iSize) {
 		double SqrtSize = Math.sqrt(iSize);
+		double sqrtSize = Math.round(SqrtSize);
+		this.iSize = iSize;
 		try {
-			if(iSize % SqrtSize == 0) {
+			if(SqrtSize == sqrtSize) {
+			this.iSqrtSize = (int)SqrtSize;
+			}
+			/*if(iSize % SqrtSize == 0) {
 				this.iSize = iSize;
 				this.iSqrtSize = (int)SqrtSize;
-			}
+			}*/
 		}
 		catch(Exception e) {
 			throw e;
