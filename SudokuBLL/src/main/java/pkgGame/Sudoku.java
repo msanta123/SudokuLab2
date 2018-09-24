@@ -28,11 +28,11 @@ public class Sudoku extends LatinSquare{
 	public Sudoku(int[][] latinSquare) {
 		super(latinSquare);
 	}
-	protected int[][] getPuzzle()
+	public int[][] getPuzzle()
 	{
 		return super.getLatinSquare();
 	}
-	protected int[] getRegion(int r)
+	public int[] getRegion(int r)
 	{
 		int[] reg = new int[super.getLatinSquare().length];
 		
@@ -51,12 +51,12 @@ public class Sudoku extends LatinSquare{
 		}
 		return reg;
 	}
-	protected int[] getRegion(int Col, int Row)
+	public int[] getRegion(int Col, int Row)
 	{
 		int r = (Col / iSqrtSize) + ((Row / iSqrtSize) * iSqrtSize);
 		return getRegion(r);
 	}
-		protected boolean isPartialSudoku()
+	public boolean isPartialSudoku()
 	{
 		for(int i = 0; i < iSize; i++) {
 			if(hasDuplicates(getRegion(i)) == false) {
@@ -69,7 +69,7 @@ public class Sudoku extends LatinSquare{
 		}
 		return false;
 	}
-		protected boolean isSudoku()
+	public boolean isSudoku()
 	{
 		if(ContainsZero() == false) {
 			if(isPartialSudoku() == true) {
@@ -81,7 +81,7 @@ public class Sudoku extends LatinSquare{
 		}
 		return false;
 	}
-		protected boolean isValueValid(int iValue, int Col, int Row)
+	public boolean isValueValid(int iValue, int Col, int Row)
 	{
 		int[] thisRow = getRow(Row);
 		int[] thisCol = getColumn(Col);
